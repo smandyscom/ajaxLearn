@@ -1,6 +1,16 @@
 <html>
     <head>
         <title>AJAX test</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script type="type/javascript">
+            $(document).ready(function(){
+                    $(button).click(function(){
+                        var me = $(this);
+                        alert(me.val());
+                        me.hide();
+                        });
+                    });
+        </script>
     </head>
     <body>
         <script type="text/javascript">
@@ -36,7 +46,7 @@
             }
 
             function test_button() {
-                var data = document.test_form.test_text.value;           
+                <!--var data = document.test_form.test_text.value;           -->
                 xml_http_post("frontend.html", data, test_handle)
             }
 
@@ -47,12 +57,15 @@
 
         </script>
 
+        <button id=123 value=start1>Trigger</button>
         <form name=test_form>
+            <button id=123 value=start1>Trigger</button>
             sqr(
             <input type="text" name="test_text" value="0" size="4">
             ) =
             <span id="test_result">0</span>
-            <input type=button onClick="test_button();" value="start" title="start">
+            <!--<button id=123 value=start1>Trigger</button>-->
+            <!--<input type=button onClick="test_button();" value="start" title="start">-->
         </form>
 
     </body>

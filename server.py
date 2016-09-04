@@ -3,8 +3,8 @@ import webbrowser
 import BaseHTTPServer
 import SimpleHTTPServer
 
-FILE = 'frontend.html'
-PORT = 8080
+FILE = 'jquery.html'
+PORT = 8060
 
 
 class TestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
@@ -13,12 +13,13 @@ class TestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
             """Handle a post request by returning the square of the number."""
             length = int(self.headers.getheader('content-length'))
             data_string = self.rfile.read(length)
-            try:
-                result = int(data_string) ** 2
-            except:
-                result = 'error'
-            self.wfile.write(result)
-            print 'result,{0},{1}'.format(result,data_string)
+            # try:
+                # result = int(data_string) ** 2
+            # except:
+                # result = 'error'
+            # self.wfile.write(result)
+            # print 'result,{0},{1}'.format(result,data_string)
+            print 'received:{0}'.format(data_string)
 
 
 def open_browser():
@@ -35,5 +36,5 @@ def start_server():
     server.serve_forever()
 
 if __name__ == "__main__":
-    open_browser()
+    # open_browser()
     start_server()
