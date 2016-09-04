@@ -5,11 +5,13 @@
             function sendRequest(sender){
                 var request=new XMLHttpRequest();
                 request.open("POST", "jquery.html", true);
-                request.onreadystatechange = receiveResponse;
+                request.onreadystatechange = receiveResponse(request);
                 request.send(sender.val());
             }
 
-            function receiveResponse(){
+            function receiveResponse(__request){
+                <!--console.log(__request.responseText);-->
+                    console.log("oh");
             }
         </script>
         <script type="text/javascript">
@@ -22,7 +24,7 @@
   </script>
   </head>
   <body>
-      <p>This is a !paragraph.</p>
+      <p id="bar">This is a !paragraph.</p>
       <button value="up">Toggle</button>
       <button value="down">Toggle</button>
       <button value="left">Toggle</button>

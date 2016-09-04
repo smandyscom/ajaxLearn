@@ -10,24 +10,12 @@ PORT = 8060
 class TestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         """The test example handler."""
         def do_POST(self):
-            """Handle a post request by returning the square of the number."""
+            """Handle a post request ."""
             length = int(self.headers.getheader('content-length'))
             data_string = self.rfile.read(length)
-            # try:
-                # result = int(data_string) ** 2
-            # except:
-                # result = 'error'
-            # self.wfile.write(result)
-            # print 'result,{0},{1}'.format(result,data_string)
+            # self.wfile.write(data_string) #as response
+            self.wfile.write("server received") #as response
             print 'received:{0}'.format(data_string)
-
-
-def open_browser():
-    """Start a browser after waiting for half a second."""
-    def _open_browser():
-        webbrowser.open('http://localhost:%s/%s' % (PORT, FILE))
-        thread = threading.Timer(0.5, _open_browser)
-        thread.start()
 
 def start_server():
     """Start the server."""
